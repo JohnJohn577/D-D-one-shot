@@ -1,0 +1,60 @@
+:root {
+  color-scheme: light dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #191d2b, #2f2535);
+}
+
+.app {
+  width: min(680px, 92vw);
+  background: rgba(10, 9, 16, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 0 15px 36px rgba(0, 0, 0, 0.35);
+}
+
+.chapter-label {
+  margin-top: -0.4rem;
+  color: #c7b8ff;
+}
+
+.scene-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.choices {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.choice-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+  background: #8f5de8;
+  color: white;
+  font-weight: 600;
+}
+
+.choice-button:hover,
+.choice-button:focus-visible {
+  background: #7848cf;
+}
+
+.status {
+  margin-top: 1rem;
+  min-height: 1.2rem;
+  color: #f6dcb2;
+}
