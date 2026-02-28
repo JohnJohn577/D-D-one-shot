@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D&D One Shot Dice Checks</title>
+    <style>
+      :root {
+        font-family: Inter, system-ui, sans-serif;
+        color: #f0f2ff;
+        background: #141726;
+      }
+      body {
+        margin: 0;
+        padding: 2rem;
+      }
+      main {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin-bottom: 0.25rem;
+      }
+      .controls,
+      .choices,
+      .results {
+        background: #1d2338;
+        border: 1px solid #3c4a73;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+      .controls-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      label {
+        display: grid;
+        gap: 0.25rem;
+        font-weight: 600;
+      }
+      input,
+      select,
+      button {
+        font: inherit;
+      }
+      button {
+        background: #43528e;
+        color: white;
+        border: 0;
+        border-radius: 8px;
+        padding: 0.55rem 0.9rem;
+        cursor: pointer;
+        text-align: left;
+      }
+      #choices {
+        display: grid;
+        gap: 0.75rem;
+      }
+      #roll-log {
+        display: grid;
+        gap: 0.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      #roll-log li {
+        background: #121728;
+        border-left: 4px solid #6678b8;
+        padding: 0.7rem;
+        border-radius: 6px;
+      }
+      #roll-log li.success {
+        border-color: #45cd88;
+      }
+      #roll-log li.failure {
+        border-color: #e66d75;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Encounter Skill Checks</h1>
+      <p>Pick an action. Rolls are d20 checks with optional advantage/disadvantage and modifiers.</p>
+
+      <section class="controls">
+        <div class="controls-row">
+          <label>
+            Roll mode
+            <select id="roll-mode">
+              <option value="normal">Normal</option>
+              <option value="advantage">Advantage</option>
+              <option value="disadvantage">Disadvantage</option>
+            </select>
+          </label>
+          <label>
+            Party bonus / penalty
+            <input id="global-modifier" type="number" value="0" />
+          </label>
+        </div>
+      </section>
+
+      <section class="choices">
+        <h2>Choices requiring checks</h2>
+        <div id="choices"></div>
+      </section>
+
+      <section class="results">
+        <h2>Roll results</h2>
+        <ul id="roll-log"></ul>
+      </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
