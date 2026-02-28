@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Story</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <h1 class="title">Pixel Story</h1>
+
+      <section class="scene" aria-label="Current story scene">
+        <img id="scene-image" class="scene-image" alt="Scene illustration" />
+        <p id="scene-text" class="scene-text"></p>
+      </section>
+
+      <section class="choices" aria-label="Story choices">
+        <button class="choice-btn" type="button"></button>
+        <button class="choice-btn" type="button"></button>
+        <button class="choice-btn" type="button"></button>
+        <button class="choice-btn" type="button"></button>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
