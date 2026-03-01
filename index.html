@@ -1,28 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pixel Story</title>
+    <title>The Road Beyond Home</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app" aria-live="polite">
-      <h1 class="title">Pixel Story</h1>
+      <header class="app-header">
+        <h1 id="chapter-title">Loading chapter...</h1>
+        <button id="reset-btn" type="button">Reset Chapter</button>
+      </header>
 
-      <section class="scene" aria-label="Current story scene">
-        <img id="scene-image" class="scene-image" alt="Scene illustration" />
-        <p id="scene-text" class="scene-text"></p>
+      <section class="image-panel">
+        <img id="scene-image" src="" alt="Scene illustration" />
+        <div id="image-placeholder" class="image-placeholder" hidden>
+          <p>Image unavailable</p>
+          <p id="image-alt-text"></p>
+        </div>
       </section>
 
-      <section class="choices" aria-label="Story choices">
-        <button class="choice-btn" type="button"></button>
-        <button class="choice-btn" type="button"></button>
-        <button class="choice-btn" type="button"></button>
-        <button class="choice-btn" type="button"></button>
+      <section class="story-panel">
+        <h2 id="scene-id" class="scene-id"></h2>
+        <p id="scene-text">Preparing your journey...</p>
+        <p id="chapter-teaser" class="chapter-teaser" hidden></p>
+      </section>
+
+      <section class="combat-panel" id="combat-panel" hidden>
+        <h3>Combat</h3>
+        <div class="combat-stats">
+          <p><strong>Player</strong> HP: <span id="player-hp"></span> | AC: <span id="player-ac"></span></p>
+          <p><strong>Enemy</strong> <span id="enemy-name"></span> HP: <span id="enemy-hp"></span> | AC: <span id="enemy-ac"></span></p>
+        </div>
+      </section>
+
+      <section class="roll-panel">
+        <h3>Last Roll</h3>
+        <pre id="roll-breakdown">No rolls yet.</pre>
+      </section>
+
+      <section class="choices-panel">
+        <h3>Choices</h3>
+        <div id="choices"></div>
       </section>
     </main>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

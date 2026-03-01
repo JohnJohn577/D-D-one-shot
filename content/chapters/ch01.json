@@ -1,0 +1,164 @@
+{
+  "chapterId": "ch01",
+  "title": "The Road Beyond Home",
+  "startSceneId": "ch01_home",
+  "scenes": {
+    "ch01_home": {
+      "id": "ch01_home",
+      "type": "narrative",
+      "image": "assets/pixel/home.png",
+      "text": "The morning air is cool as you step outside... You’ve walked this road before — but never alone, and never this far.",
+      "choices": [
+        {
+          "label": "Continue down the road",
+          "goto": "ch01_road_intro"
+        }
+      ]
+    },
+    "ch01_road_intro": {
+      "id": "ch01_road_intro",
+      "type": "check",
+      "image": "assets/pixel/road.png",
+      "text": "The road winds through low hills... Somewhere ahead, the world feels larger than it ever did back home.",
+      "choices": [
+        {
+          "label": "Stay alert and watch the treeline (Perception DC 12)",
+          "check": {
+            "kind": "ability",
+            "name": "Perception",
+            "mod": 1,
+            "dc": 12,
+            "advantage": false,
+            "disadvantage": false
+          },
+          "onSuccess": "ch01_spot_signs",
+          "onFail": "ch01_ambush_start"
+        },
+        {
+          "label": "Relax and keep walking",
+          "goto": "ch01_ambush_start"
+        }
+      ]
+    },
+    "ch01_spot_signs": {
+      "id": "ch01_spot_signs",
+      "type": "narrative",
+      "image": "assets/pixel/road_warning.png",
+      "text": "You notice disturbed earth near the roadside... Someone is watching this road.",
+      "choices": [
+        {
+          "label": "Move carefully and prepare",
+          "goto": "ch01_prepare_ambush"
+        }
+      ]
+    },
+    "ch01_prepare_ambush": {
+      "id": "ch01_prepare_ambush",
+      "type": "check",
+      "image": "assets/pixel/road_warning.png",
+      "text": "You slow your pace, hand tightening on your weapon...",
+      "choices": [
+        {
+          "label": "Advance cautiously (Stealth DC 11)",
+          "check": {
+            "kind": "ability",
+            "name": "Stealth",
+            "mod": 1,
+            "dc": 11,
+            "advantage": false,
+            "disadvantage": false
+          },
+          "onSuccess": "ch01_ambush_player_advantage",
+          "onFail": "ch01_ambush_start"
+        }
+      ]
+    },
+    "ch01_ambush_start": {
+      "id": "ch01_ambush_start",
+      "type": "combatStart",
+      "image": "assets/pixel/ambush.png",
+      "text": "A shout breaks the silence... There’s no avoiding it now.",
+      "choices": [],
+      "combat": {
+        "enemyId": "road_brigand",
+        "playerFirstAttackAdvantage": false
+      }
+    },
+    "ch01_ambush_player_advantage": {
+      "id": "ch01_ambush_player_advantage",
+      "type": "combatStart",
+      "image": "assets/pixel/ambush.png",
+      "text": "You strike first as the attacker emerges, catching them off guard.",
+      "choices": [],
+      "combat": {
+        "enemyId": "road_brigand",
+        "playerFirstAttackAdvantage": true
+      }
+    },
+    "ch01_combat_victory": {
+      "id": "ch01_combat_victory",
+      "type": "combatResolution",
+      "image": "assets/pixel/road_after.png",
+      "text": "The attacker collapses... Your heart pounds. You’re shaking — but you’re still standing.",
+      "choices": [
+        {
+          "label": "Search the body",
+          "goto": "ch01_after_search"
+        },
+        {
+          "label": "Leave quickly",
+          "goto": "ch01_after_reflect"
+        }
+      ]
+    },
+    "ch01_combat_defeat": {
+      "id": "ch01_combat_defeat",
+      "type": "combatResolution",
+      "image": "assets/pixel/road_after.png",
+      "text": "Pain flashes bright, and the world tilts... When you wake, the light has changed. You’re alive—barely.",
+      "choices": [
+        {
+          "label": "Stagger onward",
+          "goto": "ch01_after_reflect"
+        }
+      ]
+    },
+    "ch01_after_search": {
+      "id": "ch01_after_search",
+      "type": "narrative",
+      "image": "assets/pixel/road_after.png",
+      "text": "You find little of value — a few coins, a rough charm... Someone preys on travelers out here.",
+      "choices": [
+        {
+          "label": "Continue onward",
+          "goto": "ch01_after_reflect"
+        }
+      ]
+    },
+    "ch01_after_reflect": {
+      "id": "ch01_after_reflect",
+      "type": "chapterEnd",
+      "image": "assets/pixel/horizon.png",
+      "text": "The road stretches ahead, unfamiliar and dangerous... You left home this morning as a child. You won’t return as one.",
+      "teaser": "Chapter 2 will be for level 2 characters.",
+      "choices": [
+        {
+          "label": "End Chapter 1",
+          "goto": null
+        }
+      ]
+    }
+  },
+  "enemies": {
+    "road_brigand": {
+      "id": "road_brigand",
+      "name": "Road Brigand",
+      "maxHp": 7,
+      "hp": 7,
+      "ac": 12,
+      "toHitMod": 3,
+      "weaponName": "Rusty Knife",
+      "damage": "1d6+1"
+    }
+  }
+}
