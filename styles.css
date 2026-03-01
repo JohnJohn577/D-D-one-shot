@@ -1,0 +1,138 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f1e8;
+  --panel: #fffaf2;
+  --text: #2e2a25;
+  --accent: #6f4e37;
+  --muted: #85796c;
+  --border: #ccbda9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(#f8f4ec, #ece4d6);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.app {
+  width: min(760px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 1rem;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+.image-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 220px;
+  position: relative;
+  background: #ece7de;
+}
+
+#scene-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: repeating-linear-gradient(45deg, #e5ddd1, #e5ddd1 10px, #ddd2c2 10px, #ddd2c2 20px);
+  color: var(--muted);
+  padding: 1rem;
+}
+
+.story-panel p {
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+}
+
+.scene-id {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.chapter-teaser {
+  margin-top: 0.75rem;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.combat-panel,
+.roll-panel,
+.choices-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: #fff;
+}
+
+#roll-breakdown {
+  margin: 0.5rem 0 0;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+#choices {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+#reset-btn {
+  background: #5b6c7a;
+}
